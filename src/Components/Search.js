@@ -7,7 +7,7 @@ import {
   StyleSheet,
   FlatList,
   TextInput,
-  Image
+  Image,
 } from 'react-native';
 
 import {connect} from 'react-redux';
@@ -22,45 +22,53 @@ class Search extends React.Component {
     };
   }
 
-
   render() {
-    const {datas,navigation} = this.props;
+    const {datas, navigation} = this.props;
+    console.log(this.props);
     return (
       <SafeAreaView style={styles.container}>
-         <View style={{flexDirection:"row"}}>
+        <View style={{flexDirection: 'row'}}>
           <TouchableOpacity
-          onPress={()=>{
-            navigation.navigate('Datalist')
-          }}>
-         <Image
-            source={require('../Assets/LeftChevron.png')}
-            style={{marginTop:26,marginLeft:20}}
-          />
-       </TouchableOpacity>
-         
-         <TextInput
-          style={styles.TextInput}
-          autoCapitalize="none"
-          onChangeText={find => {
-              if(find && find.length > 2){
-                this.props.searchdatalist(this.props.header,find)
+            onPress={() => {
+              navigation.navigate('Datalist');
+            }}>
+            <Image
+              source={require('../Assets/LeftChevron.png')}
+              style={styles.Chevron}
+            />
+          </TouchableOpacity>
+
+          <TextInput
+            style={styles.TextInput}
+            autoCapitalize="none"
+            onChangeText={find => {
+              if (find && find.length > 2) {
+                this.props.searchdatalist(this.props.header, find);
               }
             }}
-             
-          placeholder="Search.."
-        />
-          </View>
+            placeholder="Search.."
+          />
+        </View>
 
-<View style={{marginTop:5,backgroundColor:"silver",height:3,opacity:0.3}}/>
+        <View style={styles.GreyLine} />
 
         <FlatList
           data={datas}
           renderItem={({item}) => {
             return (
-              <View>
-                <Text style={styles.spacing}>{item.productName}</Text>
-                <View style={{marginTop:5,backgroundColor:"silver",height:1}}/>
-              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Product', {
+                    name: item.productName,
+                    barcodeId: item.barcodeId,
+                    quantity: item.volume,
+                    price: item.price,
+                  });
+                }}>
+                <View style={styles.ProductView}>
+                  <Text style={styles.spacing}>{item.productName}</Text>
+                </View>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => item.id}
@@ -73,11 +81,10 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"white"
+    backgroundColor: 'white',
   },
   spacing: {
     margin: 20,
-    
   },
   TextInput: {
     height: 40,
@@ -85,7 +92,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
     marginTop: 20,
-    backgroundColor:"white"
+    backgroundColor: 'white',
+  },
+  ProductView: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'silver',
+    padding: 10,
+  },
+  Chevron: {
+    marginTop: 26,
+    marginLeft: 20,
+  },
+  GreyLine: {
+    marginTop: 5,
+    backgroundColor: 'silver',
+    height: 3,
+    opacity: 0.3,
   },
 });
 

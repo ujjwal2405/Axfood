@@ -24,31 +24,26 @@ class Home extends React.Component {
   }
   onLogin = () => {
     const {navigation, loading, failure, success} = this.props;
-    if (loading === true && success===true) {
+    if (loading === true && success === false) {
       return (
         <View style={styles.Activity}>
           <ActivityIndicator />
         </View>
       );
-    } else if (success === true) {
+    } else if (loading==false,success === true) {
       navigation.navigate('Concept');
-    } else if (failure === true) {
+    } else if (loading==false,failure === true) {
       return Alert.alert('wrong credentials');
     }
   };
 
   render() {
-    const {navigation, loading, failure, success} = this.props;
     return (
-        
-        <ImageBackground
+      <ImageBackground
         source={require('../Assets/veggiesBottom.png')}
-        style={{flex:1,resizeMode:'cover'}}
-        >
-        
-
+        style={styles.ImageBg}>
         <Image
-          style={{marginLeft: 35, marginTop: 160}}
+          style={styles.Logo}
           source={require('../Assets/axfoodLogo.png')}
         />
 
@@ -80,21 +75,16 @@ class Home extends React.Component {
           </View>
         </TouchableOpacity>
 
-          <View style={styles.AssetContainer}>
-        <Text>
-            Forgot Password
-        </Text>
+        <View style={styles.AssetContainer}>
+          <Text>Forgot Password</Text>
         </View>
 
         <View style={styles.AssetContainer}>
-        <Text>
-           New User? <Text style={styles.signup}>Sign Up</Text>
-        </Text>
+          <Text>
+            New User? <Text style={styles.signup}>Sign Up</Text>
+          </Text>
         </View>
-
-      
       </ImageBackground>
-    
     );
   }
 
@@ -138,9 +128,27 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   },
-  LoginText: {color: 'white', fontWeight: 'normal'},
-  signup:{color:'rgb(235, 90, 14)',fontWeight:'bold'},
-  AssetContainer:{justifyContent:"center",alignItems:'center',marginTop:30}
+  LoginText: {
+    color: 'white',
+    fontWeight: 'normal',
+  },
+  signup: {
+    color: 'rgb(235, 90, 14)',
+    fontWeight: 'bold',
+  },
+  AssetContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+  },
+  ImageBg: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  Logo: {
+    marginLeft: 35,
+    marginTop: 160,
+  },
 });
 
 const mapStateToProps = state => ({

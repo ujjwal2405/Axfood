@@ -22,20 +22,30 @@ class Datalist extends React.Component {
   }
 
   render() {
-    const {datas,navigation} = this.props;
+    const {datas, navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.SelectStoreView}>
-          <Text style={styles.SelectStore}>Select Store</Text>
-          
           <TouchableOpacity
-          onPress={()=>{
-              navigation.navigate('Search')
-          }}>
-          <Image
-            source={require('../Assets/search.png')}
-            style={styles.Search}
-          />
+            onPress={() => {
+              navigation.navigate('Concept');
+            }}>
+            <Image
+              source={require('../Assets/LeftChevron.png')}
+              style={styles.Chevron}
+            />
+          </TouchableOpacity>
+
+          <Text style={styles.SelectStore}>Select Store</Text>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Search');
+            }}>
+            <Image
+              source={require('../Assets/search.png')}
+              style={styles.Search}
+            />
           </TouchableOpacity>
         </View>
 
@@ -74,7 +84,7 @@ const styles = StyleSheet.create({
   SelectStore: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginLeft: 20,
+    marginLeft: 10,
   },
   FlatListView: {
     flex: 1,
@@ -103,7 +113,14 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 20,
   },
-  Address:{marginTop: 10,textTransform:'uppercase'}
+  Address: {
+    marginTop: 10,
+    textTransform: 'uppercase',
+  },
+  Chevron: {
+    marginTop: 10,
+    marginLeft: 0,
+  },
 });
 
 const mapStateToProps = state => ({

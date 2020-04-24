@@ -8,6 +8,7 @@ import * as React from 'react';
 import {Provider} from 'react-redux';
 import store from './src/Services/rootreducer';
 import Concept from './src/Components/Concept';
+import Product from './src/Components/Product';
 const Stack = createStackNavigator();
 
 const MyStack = () => {
@@ -18,6 +19,7 @@ const MyStack = () => {
       <Stack.Screen options={{headerShown: false}} name="Concept" component={Concept} />
       <Stack.Screen options={{headerShown: false}} name="Datalist" component={Datalist} />
       <Stack.Screen options={{headerShown: false}} name="Search" component={Search} />
+      <Stack.Screen options={{headerShown: false}}   name="Product" component={Product} />
     </Stack.Navigator>
   );
 };

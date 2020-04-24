@@ -22,18 +22,21 @@ class Concept extends React.Component {
   }
 
   render() {
-    const {datas} = this.props;
+    const {datas,navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.Concept}>
           <Text style={styles.SelectConcept}>Select Concept</Text>
 
-            <TouchableOpacity>
+          <TouchableOpacity
+          onPress={()=>{
+            navigation.navigate('Search')
+          }}>
             <Image
               source={require('../Assets/search.png')}
               style={styles.Search}
             />
-            </TouchableOpacity>
+          </TouchableOpacity>
         </View>
         <View style={styles.margintop}>
           <FlatList
