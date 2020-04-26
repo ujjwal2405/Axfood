@@ -12,6 +12,7 @@ import {
 
 import {connect} from 'react-redux';
 import {searchdata} from '../Services/Search/action';
+import { colors } from '../Config/constants';
 
 class Search extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Search extends React.Component {
               navigation.navigate('Datalist');
             }}>
             <Image
-              source={require('../Assets/LeftChevron.png')}
+              source={require('../Assets/ChevronLeft.png')}
               style={styles.Chevron}
             />
           </TouchableOpacity>
@@ -81,7 +82,7 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   spacing: {
     margin: 20,
@@ -92,11 +93,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
     marginTop: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   ProductView: {
     borderBottomWidth: 1,
-    borderBottomColor: 'silver',
+    borderBottomColor: colors.silver,
     padding: 10,
   },
   Chevron: {
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
   },
   GreyLine: {
     marginTop: 5,
-    backgroundColor: 'silver',
+    backgroundColor: colors.silver,
     height: 3,
     opacity: 0.3,
   },

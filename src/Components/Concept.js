@@ -11,6 +11,8 @@ import {
 
 import {connect} from 'react-redux';
 import {getConceptdata} from '../Services/Concept/action';
+import {colors} from '../Config/constants'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class Concept extends React.Component {
   constructor(props) {
@@ -19,15 +21,30 @@ class Concept extends React.Component {
 
   componentDidMount() {
     this.props.conceptlist(this.props.header);
-  }
+//     AsyncStorage.setItem('key',this.props.header)
+    
+//     AsyncStorage.getItem('key').then(value=>{
+//             this.props.conceptlist(value);
+//          })
+ 
+//   }
 
+//   logout=()=>{
+//       AsyncStorage.clear()
+//       this.props.navigation.navigate('Home')
+//   }
+  }
   render() {
     const {datas,navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.Concept}>
           <Text style={styles.SelectConcept}>Select Concept</Text>
-
+       
+       
+     
+          
+          
           <TouchableOpacity
           onPress={()=>{
             navigation.navigate('Search')
@@ -63,6 +80,7 @@ class Concept extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:colors.white
   },
   spacing: {
     margin: 20,
@@ -70,7 +88,7 @@ const styles = StyleSheet.create({
   Concept: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 20,
+    marginLeft: 10,
     marginTop: 20,
   },
   margintop: {

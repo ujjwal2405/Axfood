@@ -1,4 +1,8 @@
 import {TOGGLE_FLAG,LOGIN_FAIL,LOGIN_START,LOGIN_SUCCESS} from './constant'
+import AsyncStorage, {AsyncStorageStatic} from '@react-native-community/async-storage'
+
+
+
 
 export const toggleFlag = (username,password) => dispatch =>{
      dispatch({

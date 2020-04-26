@@ -14,10 +14,10 @@ const homeReducer = (state=initialState , action ={}) =>{
             return {...state,loading:true}
         }
         case LOGIN_SUCCESS:{
-            return{...state,loginSuccess:true,loading:false,header:action.data}
+            return{...state,loginSuccess:true,header:action.data}
         }
         case LOGIN_FAIL:{
-            return{...state,loginFailure:true,loading:false}
+            return{...state,loginSuccess:false}
         }
         default:
             return state;

@@ -5,14 +5,12 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StyleSheet,
-  FlatList,
-  TextInput,
   Image,
 } from 'react-native';
 
 import {connect} from 'react-redux';
 import {searchdata} from '../Services/Search/action';
-import {BaseRouter} from '@react-navigation/native';
+import {colors} from '../Config/constants'
 
 class Product extends React.Component {
   constructor(props) {
@@ -33,7 +31,7 @@ class Product extends React.Component {
               navigation.navigate('Search');
             }}>
             <Image
-              source={require('../Assets/LeftChevron.png')}
+              source={require('../Assets/ChevronLeft.png')}
               style={styles.Chevron}
             />
           </TouchableOpacity>
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
     marginTop: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   ProductView: {
     borderBottomWidth: 1,
@@ -93,7 +91,6 @@ const styles = StyleSheet.create({
   },
   HeadContainer: {
     flexDirection: 'row',
-
     marginTop: 15,
     padding: 5,
   },
@@ -116,25 +113,26 @@ const styles = StyleSheet.create({
   },
   BarcodeId: {
     marginTop: 10,
-    color: 'grey',
+    color: colors.silver,
   },
   LSD: {
     marginLeft: 20,
     marginTop: 30,
   },
   LsdText: {
-    color: 'grey',
+    color: colors.silver,
   },
 
   ProductQuantityView: {
     marginLeft: 20,
     marginRight: 20,
-    backgroundColor: '#D9D9DB',
+    marginTop: 15,
+    backgroundColor: colors.bgproduct,
     padding: 30,
     opacity: 0.5,
   },
   QuantityView: {flexDirection: 'row', justifyContent: 'space-between'},
-  GreyLine: {height: 1, backgroundColor: 'grey', marginTop: 10},
+  GreyLine: {height: 1, backgroundColor: colors.grey, marginTop: 10},
   PriceView: {
     flexDirection: 'row',
     justifyContent: 'space-between',

@@ -11,6 +11,7 @@ import {
 
 import {connect} from 'react-redux';
 import {getdata} from '../Services/Data/action';
+import {colors} from '../Config/constants'
 
 class Datalist extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Datalist extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.SelectStoreView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               navigation.navigate('Concept');
             }}>
@@ -34,7 +35,7 @@ class Datalist extends React.Component {
               source={require('../Assets/LeftChevron.png')}
               style={styles.Chevron}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <Text style={styles.SelectStore}>Select Store</Text>
 
@@ -72,7 +73,7 @@ class Datalist extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   spacing: {
     margin: 20,
@@ -88,10 +89,9 @@ const styles = StyleSheet.create({
   },
   FlatListView: {
     flex: 1,
-    backgroundColor: 'white',
     padding: 30,
-    backgroundColor: 'white',
-    shadowColor: '#000',
+    backgroundColor: colors.white,
+    shadowColor: colors.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
