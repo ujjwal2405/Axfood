@@ -9,12 +9,14 @@ import {Provider} from 'react-redux';
 import store from './src/Services/rootreducer';
 import Concept from './src/Components/Concept';
 import Product from './src/Components/Product';
+import Dummy from './src/Components/Dummy';
 const Stack = createStackNavigator();
 
 const MyStack = () => {
   return (
-    <Stack.Navigator>
-
+    <Stack.Navigator
+    >
+      <Stack.Screen options={{headerShown: false}} name="Dummy" component={Dummy} />
       <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
       <Stack.Screen options={{headerShown: false}} name="Concept" component={Concept} />
       <Stack.Screen options={{headerShown: false}} name="Datalist" component={Datalist} />

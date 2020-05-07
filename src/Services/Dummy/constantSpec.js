@@ -1,0 +1,3 @@
+export const SPECIFIC_DATA = 'SPECIFIC_DATA'
+export const UPDATE_DATA = 'SPECIFIC_DATA'
+export const DELETE_DATA = 'DELETE_DATA'

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   FlatList,
   Image,
+  ActivityIndicator
 } from 'react-native';
 
 import {connect} from 'react-redux';

@@ -1,13 +1,16 @@
 import {DISPLAY_DATA} from './constant';
 
+
 const initialState={
-   datastore:[]
+   dummystore:[],
+  
+   
 }
 
-const datadisplayReducer = (state=initialState , action ={}) =>{
+const dummydisplayReducer = (state=initialState , action ={}) =>{
     switch(action.type){
         case DISPLAY_DATA:{
-            return {...state, datastore : action.data}
+            return {...state, dummystore : action.data}
         }
         
      
@@ -16,4 +19,4 @@ const datadisplayReducer = (state=initialState , action ={}) =>{
     }
 }
 
-export default datadisplayReducer
+export default dummydisplayReducer
