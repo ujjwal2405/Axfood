@@ -2,7 +2,7 @@ import {DISPLAY_DATA} from './constant';
 
 export const getdummyData = () => dispatch => {
   fetch(
-    'http://dummy.restapiexample.com/api/v1/employees',
+    'http://ab10054d.ngrok.io/api/users',
     {
       method: 'GET',
       // headers: {

@@ -24,7 +24,7 @@ const MyStack = () => {
       <Stack.Screen options={{headerShown: false}}   name="Product" component={Product} />
     </Stack.Navigator>
   );
-};
+};  
 
 const App = () => {
   return (

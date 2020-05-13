@@ -2,15 +2,19 @@ import {SPECIFIC_DATA} from './constantSpec';
 import {UPDATE_DATA} from './constantSpec'
 import {DELETE_DATA} from './constantSpec'
 
-export const specificdummyData = (name,salary,age) => dispatch => {
+
+export const specificdummyData = (username,email,name,phone_number) => dispatch => {
+    console.log(username,email,name,phone_number)
+   
     fetch(
-      'http://dummy.restapiexample.com/api/v1/create',
+      'http://ab10054d.ngrok.io/api/users',
       {
         method: 'POST',
         body: JSON.stringify({
-            name: name,
-            salary: salary,
-            age:age
+            username: username,
+            email: email,
+            name:name,
+            phone_number:phone_number
           })
       },
     )
@@ -26,15 +30,16 @@ export const specificdummyData = (name,salary,age) => dispatch => {
       });
   };
 
-  export const updatedummyData = (name,salary,age,id) => dispatch => {
+  export const updatedummyData = (username,email,name,phone_number,id) => dispatch => {
     fetch(
       'http://dummy.restapiexample.com/api/v1/update/'+id,
       {
         method: 'PUT',
         body: JSON.stringify({
-            name: name,
-            salary: salary,
-            age:age
+            username: username,
+            email: email,
+            name:name,
+            phone_number:phone_number
           })
       },
     )
